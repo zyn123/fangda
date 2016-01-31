@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        html,body{
+            width:100%;
+            height:100%;
+            overflow: hidden;
+        }
+*{
+    box-sizing: border-box;
+}
+
+        .box{
+            width:3300px;
+            height:2000px;
+            border:1px solid red;
+            position: absolute;
+        }
+        .chaochang{
+            height:2000px;
+            width:800px;border: 1px solid red;
+        }
+        .erchang{
+            height:1600px;
+            width:800px;
+            border: 1px solid red;
+        }
+        .sanchang{
+            height:800px;
+            width:800px;
+            border: 1px solid red;
+        }
+        .fang{
+            height:400px;
+            width:800px;
+            border: 1px solid red;
+        }
+        .box img{
+            /*margin:20px;*/
+        }
+        .ff{
+            float: left;
+        }
+        .ff img{
+            width:100%;
+            height:100%;
+        }
+    </style>
+    <script src="jquery.js"></script>
+    <script>
+        $(function(){
+            var box=$(".box");
+            var clientW=$(window).width();
+            var clientH=$(window).height();
+            var boxW=box.width();
+            var boxH=box.height();
+
+            box.css({
+                left:(clientW-boxW)/2,
+                top:(clientH-boxH)/2,
+                border:"10px solid red",
+                transform:"scale(0.1,0.1)"
+            });
+            var bx=(boxW+20-clientW)/clientW,
+                    by=(boxH+20-clientH)/clientH;
+            setTimeout(function () {
+                box.css({
+                    transition:"transform 10s ease",
+                    transform:"scale(1,1)"
+                });
+            },300);
+            var px,py;
+            box.mousemove(function(e) {
+                px = e.pageX;
+                py = e.pageY;
+            })
+            setInterval(function(){
+                box.css({
+                    transition: "left 0.5s,top 0.5s",
+                    left:-px*bx,
+                    top:-py*by
+                })
+            },0);
+        })
+    </script>
+</head>
+<body>
+  <div class="box">
+      <div class=" chaochang ff"><img src="./images/da1.png" alt=""></div>
+      <div class="erchang ff"><img src="./images/da2.png" alt=""></div>
+      <div class="fang ff"><img src="./images/j1.png" alt=""></div>
+      <div class="fang ff"><img src="./images/j2.png" alt=""></div>
+      <div class="fang ff"><img src="./images/j3.png" alt=""></div>
+      <div class="fang ff"><img src="./images/j4.png" alt=""></div>
+      <div class="fang ff"><img src="./images/j5.png" alt=""></div>
+      <div class="fang ff"><img src="./images/j6.png" alt=""></div><div class="sanchang ff"><img src="./images/da3.png" alt=""></div>
+      <div class="fang ff"><img src="./images/j7.png" alt=""></div>
+
+      <div class="fang ff"><img src="./images/j8.png" alt=""></div>
+      <div class="fang ff"> <img src="./images/j9.png" alt=""></div>
+
+
+
+
+  </div>
+</body>
+</html>
